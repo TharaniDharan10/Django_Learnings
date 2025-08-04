@@ -1,4 +1,4 @@
-from django.http.response import JsonResponse
+from django.http import JsonResponse
 from django.shortcuts import render,HttpResponse
 
 
@@ -18,3 +18,14 @@ def even_odd(request):
         return HttpResponse(f"{number} is even")
     else:
         return HttpResponse(f"{number} is odd")
+    
+# to render a html file from templates 
+def htmlfile(request):
+    # to render a html file 
+    return render(request, 'index.html')
+
+# to pass a variable or data into html file 
+def datafile(request):
+    # to render a html file 
+    a = "Django is a web framework of Python"
+    return render(request, 'index.html', {"data" : a})
