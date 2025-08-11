@@ -1,31 +1,51 @@
-from django.http import JsonResponse
-from django.shortcuts import render,HttpResponse
-
+from django.http import JsonResponse, HttpResponse
+from django.shortcuts import render
 
 def home(request):
     return HttpResponse("This is home of myapp")
 
-# return json response 
+# return JSON response
 def data(request):
-    data = {"name" : "John", "age" : 21, "city": "New York", "course": "INT253"}
+    data = {
+        "name": "John",
+        "age": 21,
+        "city": "New York",
+        "course": "INT253"
+    }
     return JsonResponse(data)
 
-# return if a number is even or odd 
+# return if a number is even or odd
 def even_odd(request):
     number = 21
     if number % 2 == 0:
-        # to return a Variable, use f  
         return HttpResponse(f"{number} is even")
     else:
         return HttpResponse(f"{number} is odd")
-    
-# to render a html file from templates 
+
+# render an HTML file from templates
 def htmlfile(request):
-    # to render a html file 
     return render(request, 'index.html')
 
-# to pass a variable or data into html file 
+# pass a variable or data into HTML file
 def datafile(request):
-    # to render a html file 
     a = "Django is a web framework of Python"
-    return render(request, 'index.html', {"data" : a})
+    return render(request, 'index.html', {"data": a})
+
+def display(req, username):
+    return HttpResponse(f"Username: {username}")
+
+# year view
+def year(request, year):
+    return HttpResponse(f"Year: {year}")
+
+def uservalue(request, name):
+    return HttpResponse(f"Name: {name}")
+
+def website(request, data):
+    try:
+        data = 10 / data
+        return HttpResponse(f"Result: {data}")
+    except ZeroDivisionError:
+        return HttpResponse("Error: Division by zero is not allowed.")
+    except TypeError:
+        return HttpResponse("Error: Please provide a valid number.")
