@@ -8,5 +8,10 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('about/', views.about, name='about'),
     path('help/', views.help, name='help'),
-    path("", include("myapp.urls"))
+    path("", include("myapp.urls")),
+    path('about2/', views.about2),
+    path('dynamicdata/', views.dynamic),
+    path("dynamicsum/", views.dynamicsum),
+    path('ifelse/', views.ifelse),
+    path('ifelsebyurl/<int:age>', views.ifelsebyurl)
 ]
