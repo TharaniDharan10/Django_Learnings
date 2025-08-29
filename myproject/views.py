@@ -1,3 +1,4 @@
+from logging import RootLogger
 from os import name
 import re
 from django.shortcuts import HttpResponse, render
@@ -30,3 +31,13 @@ def ifelse(req):
 
 def ifelsebyurl(req, age):
     return render(req, 'ifelse.html', {'age' : age})
+
+def studDetails(req):
+    name = "Daniel Joseph"
+    age = "21"
+    roll = "12345"
+    mark = 59
+    lang = ["English", "Hindi", "Tamil"]
+    courses = ("Computer", "DSA", "Python")
+    submark = {"Computer" : 34, "DSA" : 56, "Python" : 87}
+    return render(req, "studfile.html", {'name': name, 'age': age, 'roll': roll, 'mark': mark, 'lang': lang, 'courses' : courses, 'submark' : submark})

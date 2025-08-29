@@ -13,5 +13,6 @@ urlpatterns = [
     path('dynamicdata/', views.dynamic),
     path("dynamicsum/", views.dynamicsum),
     path('ifelse/', views.ifelse),
-    path('ifelsebyurl/<int:age>', views.ifelsebyurl)
+    path('ifelsebyurl/<int:age>', views.ifelsebyurl),
+    path("studDetail/", views.studDetails)
 ]

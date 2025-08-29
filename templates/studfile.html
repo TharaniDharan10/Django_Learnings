@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <th colspan="2">Student Details</th>
+        <tr>
+            <td>Name</td>
+            <td>{{name}}</td>
+        </tr>
+
+         <tr>
+            <td>Age</td>
+            <td>{{age}}</td>
+        </tr> 
+
+        <tr>
+            <td>Roll</td>
+            <td>{{roll}}</td>
+        </tr>
+
+        <tr>
+            <td>Mark</td>
+            <td>{{mark}}</td>
+        </tr>
+         <tr>
+            <td>
+                Language
+            </td>
+            <td>
+                <ol>
+                    {% for i in lang %}
+                    <li>{{i}}</li>
+                    {% endfor %}
+                </ol>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Courses
+            </td>
+            <td>
+                <ol>
+                    {% for i in courses %}
+                    <li>{{i}}</li>
+                    {% endfor %}
+                </ol>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Sub mark
+            </td>
+            <td>
+                <ul>
+                    {% for subject, score in submark.items %}
+                    <li>{{subject}} : {{score}}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        
+      
+        <tr>
+            <td>Result</td>
+             <td>
+                {% if mark > average %}
+                    <p>Great job! You scored above the class average.</p>
+                {% elif mark > 60 %}
+                    <p>Congratulations, you have passed</p>
+                {% elif mark >= 50 and mark <= 60 %}
+                    <p>You have just passed by scoring a little more than average mark</p>
+                {% else %}
+                    <p>Oon Nooooo, you failed</p>
+                {% endif %}
+            </td>
+
+            
+        </tr>
+       
+    </table>
+    
+</body>
+</html>
